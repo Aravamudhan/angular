@@ -4,16 +4,16 @@ export class Hero {
     name: string;
 }
 const HEROES: Hero[] = [
-    { id: 11, name: 'Mr. Nice' },
-    { id: 12, name: 'Narco' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Tornado' }
+    { id: 11, name: 'Batman' },
+    { id: 12, name: 'Superman' },
+    { id: 13, name: 'Wonder woman' },
+    { id: 14, name: 'Spider man' },
+    { id: 15, name: 'Iron man' },
+    { id: 16, name: 'Aquaman' },
+    { id: 17, name: 'Wolverine' },
+    { id: 18, name: 'Shakthiman' },
+    { id: 19, name: 'Prof. Xavier' },
+    { id: 20, name: 'The Hulk' }
 ];
 //Every angular app has a component. They are the basic building blocks.
 //A component controls a portion of the screen - a viwe - through its template.
@@ -43,14 +43,7 @@ const HEROES: Hero[] = [
                    <span class="badge">{{hero.id}}</span>{{hero.name}}
                  </li>
                </ul>
-               <div *ngIf="selectedHero">
-                 <h2>{{selectedHero.name}} details!</h2>
-                 <div><label>Id: </label>{{selectedHero.id}}</div>
-                 <div>
-                   <label>Name: </label>
-                   <input [(ngModel)] = "selectedHero.name" placeholder="name"/>
-                 </div>
-               </div>`,
+               <hero-details [hero]="selectedHero"></hero-details>`,
     styles: [`
              .selected {
                background-color: #CFD8DC !important;
