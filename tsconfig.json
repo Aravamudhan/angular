@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    //If compiler can not infer the variable type, assumes that to be 'any' if it is true.
+    //If set true, generates an error, if type can not be inferred. Generates the file though
+    "noImplicitAny": true
+  }
+}
