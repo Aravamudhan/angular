@@ -1,20 +1,6 @@
-import { Component } from '@angular/core';
-export class Hero {
-    id: number;
-    name: string;
-}
-const HEROES: Hero[] = [
-    { id: 11, name: 'Batman' },
-    { id: 12, name: 'Superman' },
-    { id: 13, name: 'Wonder woman' },
-    { id: 14, name: 'Spider man' },
-    { id: 15, name: 'Iron man' },
-    { id: 16, name: 'Aquaman' },
-    { id: 17, name: 'Wolverine' },
-    { id: 18, name: 'Shakthiman' },
-    { id: 19, name: 'Prof. Xavier' },
-    { id: 20, name: 'The Hulk' }
-];
+import { Component, OnInit } from '@angular/core';
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 //Every angular app has a component. They are the basic building blocks.
 //A component controls a portion of the screen - a viwe - through its template.
 //The root component is AppComponent here.
@@ -92,14 +78,27 @@ const HEROES: Hero[] = [
                margin-right: .8em;
                border-radius: 4px 0 0 4px;
              }
-           `]
+           `],
+  //This is registering for dependency injection.
+  //This tells angular to create a HeroService when AppComponent is created.
+  providers : [HeroService]
 })
 //The export keyword is necessary, so that it can be imported in the app that is created.
-export class AppComponent {
-    title = 'Tour of heros';
-    heroes = HEROES;
-    selectedHero: Hero;
-    onSelect(hero: Hero): void {
-        this.selectedHero = hero;
-    }
+export class AppComponent implements OnInit {
+  title = 'Tour of heros';
+  heroes : Hero[];
+  selectedHero : Hero;
+
+  constructor(private heroService : HeroService){}
+
+  getHeroes() : void {
+    this.heroService.getHeroes().then(heroes => this.heroes =heroes);
+  }
+  //This is a lifecylce hook. This gets called when AppComponent is initialized.
+  ngOnInit(): void{
+    this.getHeroes();
+  }
+  onSelect(hero: Hero): void {
+      this.selectedHero = hero;
+  }
 }
