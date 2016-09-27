@@ -3,3 +3,4 @@ npm-debug.log
 #To remove compiled js files
 **/*.map
 **/*.js
+typings/
