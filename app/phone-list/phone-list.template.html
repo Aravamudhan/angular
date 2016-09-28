@@ -18,7 +18,8 @@
         in the input box, the filter input is also updated. Filter creates
         an array that matches only $ctrl.query value. -->
         <!-- orderBy filter takes an input array copies it and reorders it. -->
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail">
+          <a href="#/phones/{{phone.id}}"></a>
           <span>{{phone.name}}</span>
           <p>{{phone.snippet}}</p>
         </li>
