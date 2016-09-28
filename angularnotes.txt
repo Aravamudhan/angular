@@ -37,3 +37,5 @@ own scopes.
 10. One feature per file, each entity in its own file, split the code into modules. A feature directory
 should contain all the related entities, components, modules. This makes reusability seamless. The whole
 feature directory can be copied to another application and re used.
+11. The properties that begin with $$ are considered to be private. Should not be modified or accessed.
+The $ prefix is used for the angular provided services. This should not be used for user defined services.

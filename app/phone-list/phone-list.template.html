@@ -1,6 +1,28 @@
-<ul>
-  <li ng-repeat="phone in $ctrl.phones">
-    <span>{{phone.name}}</span>
-    <p>{{phone.snippet}}</p>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <p>
+        Search: <input ng-model="$ctrl.query"/>
+      </p>
+      <p>
+        Sort By:
+        <select ng-model="$ctrl.orderProp">
+          <option name="name">Alphabetical</option>
+          <option name="age">Newest</option>
+        </select>
+      </p>
+    </div>
+    <div class="col-md-10">
+      <ul class="phones">
+        <!-- The filter input is the model $ctrl.query. If this value is changed
+        in the input box, the filter input is also updated. Filter creates
+        an array that matches only $ctrl.query value. -->
+        <!-- orderBy filter takes an input array copies it and reorders it. -->
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+          <span>{{phone.name}}</span>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
