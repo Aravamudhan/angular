@@ -4,6 +4,6 @@ angular.module(
   // This makes all entities registered in the phoneListModule available to
   // phoneCatAppModule as well.
   [
-    'phoneListModule'
+    'phoneListModule', 'ngRoute', 'phoneDetail'
   ]
 );

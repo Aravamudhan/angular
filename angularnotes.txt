@@ -39,3 +39,6 @@ should contain all the related entities, components, modules. This makes reusabi
 feature directory can be copied to another application and re used.
 11. The properties that begin with $$ are considered to be private. Should not be modified or accessed.
 The $ prefix is used for the angular provided services. This should not be used for user defined services.
+12. DI is the core of angular. Injector loads the module definitions. Module definitions have providers
+registerd in them. When requested, these providers would create services and expose their APIs. A Provider
+can be a provider of multiple services.

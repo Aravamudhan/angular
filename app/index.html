@@ -3,22 +3,29 @@
 This serves as a root loading point for our application.
 PhoneListController is loaded by this module. -->
 <html lang="en" ng-app="phoneCatAppModule">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/angular/angular.js"></script>
+    <!-- This defines ngRoute which provides routing. -->
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
     <script src="phone-list/phone-list.component.js"></script>
+    <script src="phone-detail/phone-detail.module.js"></script>
+    <script src="phone-detail/phone-detail.component.js"></script>
     <style>
-    body{
-      padding : 10px;
-    }
+        body {
+            padding: 10px;
+        }
     </style>
-  </head>
-  <body>
-    <phone-list>
-    </phone-list>
-  </body>
+</head>
+
+<body>
+    <div ng-view></div>
+</body>
+
 </html>
