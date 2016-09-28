@@ -1,0 +1,39 @@
+1. When the page referencing angular.js is loaded, it looks for the ngApp directive.
+It bootstraps the application with the root DOM being the element on which ngApp is defined.
+(Example) <html ng-app>
+2. Angular uses kebab-case for custom attributes and camelCase for the directive that
+implement them. Here ng-app is an attribute, ngApp is the directive that implements it.
+3. Double curly braces-{{}} tell angular to evaluate the expression inside the braces and
+insert the result into the DOM in place of the binding.
+4. In the bootstrap phase
+a) The injector that will be used for dependency injection is created.
+b) The injector root scope that becomes context for the model of our application.
+c) Angular compiles the DOM starting at the ngApp(root) element by processing directives and
+bindings found along the way.
+Once an application is bootstraped it waits for events such as incoming HTTP responses,
+click events etc. When any event occurs, angular detects if it has caused any model changes.
+If it finds any such such, then it will be reflected in the view by updating all the affected binding.\
+5. View is the projection of model in angular. Whenever model changes, view is refreshed in the
+appropriate binding points.
+6. Scope is something that allows templates, model and view to work together. Any changes
+in the model is reflected in the view, the any change in the view is reflected in the
+model as well.
+7. Scopes inherit starting from the root scope. Root scope is defined where ngApp directive
+is marked. If any value is available in the root scope, that is available to all other
+children scopes as well. Scopes are created automatically when the compiled HTML template
+is executed.
+8. Components enable code reuse. Without components there is a risk of model in a certain part
+becoming available to some other part and modified unexpectedly is palpable. This is because
+the scope is not isolated. Any thing created in the root scope, becomes available to the entire
+application. When using components, angular creates isolate scope for each instance of components.
+This removes the risk of prototypal inheritance(i.e.)the current scope inheriting from
+its parent scopes. Component is created by using .component() method. Components are also
+directives. Compoents are considered to be stripped down version of directives. Hence
+the name should be in the camelCase and when refering to it in the html, kebab-case should be
+used. Components can be reused in the app as well as across applications.
+9. It is a best practice to assign methods and properties to the controller instances using this
+instead of directly to the scope. By default $ctrl is an alias used by components to refer their
+own scopes.
+10. One feature per file, each entity in its own file, split the code into modules. A feature directory
+should contain all the related entities, components, modules. This makes reusability seamless. The whole
+feature directory can be copied to another application and re used.
