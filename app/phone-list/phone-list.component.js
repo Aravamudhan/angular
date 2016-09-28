@@ -1,14 +1,13 @@
 // The component phoneList is being attached to the module phoneCatAppModule
 angular.
-  module('phoneCatAppModule').
+  module('phoneListModule').
     component('phoneList',{
-
-      template : '<ul>'+
-                    '<li ng-repeat="phone in $ctrl.phones">'+
-                      '<span>{{phone.name}}</span>'+
-                      '<p>{{phone.snippet}}</p>'+
-                    '</li>'+
-                  '</ul>',
+     //The URL is relative to the home directory or the index.html file.
+     //Using template directly couples this file with the HTML. By Using
+     //templateUrl instead of template code is cleaner and decoupled from HTML.
+     //For every templateUrl, a request is made to the server. Angular provides lazy fetching of templates
+     //and caching to make it effective, especially on mobile devices.
+      templateUrl : 'phone-list/phone-list.template.html',
 
       controller : function PhoneListController(){
         this.name = 'world';
