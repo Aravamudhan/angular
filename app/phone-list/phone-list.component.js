@@ -20,13 +20,26 @@ component('phoneList', {
     //function PhoneListController($http) {...}
     //...
     //.component('phoneList', {..., controller: ['$http', PhoneListController]});
-    controller: ['$http',
-        function PhoneListController($http) {
-            var self = this;
-            self.orderProp = 'age';
-            $http.get('/phones/phones.json').then(function(response) {
-                self.phones = response.data;
-            });
-        }
+    // Commenting the controller below in favour of using ngResource#$resource services
+    // controller: ['$http',
+    //     function PhoneListController($http) {
+    //         var self = this;
+    //         self.orderProp = 'age';
+    //         $http.get('/phones/phones.json').then(function(response) {
+    //             self.phones = response.data;
+    //         });
+    //     }
+    // ]
+    // Here instead of $http.get().then....{...} Phone.query() is used.
+    controller : ['Phone',
+      function PhoneListController(Phone){
+        // The query method does not return the response synchronously. It returns
+        // something called 'future', an object, which will be filled when the XHR response
+        // is received. Because of the two-way data binding, even if this future object is bound
+        // to the view before the response arrives, that will be updated automatically once the
+        // response is received.
+        this.phones = Phone.query();
+        this.orderProp = 'age';
+      }
     ]
 });

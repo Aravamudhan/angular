@@ -1,4 +1,4 @@
-<img ng-src="{{$ctrl.phone.images[0]}}" class="phone" />
+<img ng-src="{{$ctrl.mainImageUrl}}" class="phone" />
 
 <h1>{{$ctrl.phone.name}}</h1>
 
@@ -6,7 +6,7 @@
 
 <ul class="phone-thumbs">
     <li ng-repeat="img in $ctrl.phone.images">
-        <img ng-src="{{img}}" />
+        <img ng-src="{{img}}" ng-click="$ctrl.setImage(img)" ng-dblclick="$ctrl.onDoubleClick()"/>
     </li>
 </ul>
 
@@ -79,7 +79,7 @@
             <dt>Screen resolution</dt>
             <dd>{{$ctrl.phone.display.screenResolution}}</dd>
             <dt>Touch screen</dt>
-            <dd>{{$ctrl.phone.display.touchScreen}}</dd>
+            <dd>{{$ctrl.phone.display.touchScreen | checkmark}}</dd>
         </dl>
     </li>
     <li>
@@ -97,7 +97,7 @@
             <dd>{{$ctrl.phone.hardware.accelerometer| checkmark}}</dd>
         </dl>
     </li>
-    <li ng-if="{{$ctrl.phone.camera}}">
+    <li ng-if="$ctrl.phone.camera">
         <span>Camera</span>
         <dl>
             <dt>Primary</dt>
@@ -106,7 +106,7 @@
             <dd>{{$ctrl.phone.camera.features.join(', ')}}</dd>
         </dl>
     </li>
-    <li ng-if="{{$ctrl.phone.additionalFeatures}}">
+    <li ng-if="$ctrl.phone.additionalFeatures">
         <span>Additional Features</span>
         <dd>{{$ctrl.phone.additionalFeatures}}</dd>
     </li>
