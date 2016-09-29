@@ -8,12 +8,16 @@ PhoneListController is loaded by this module. -->
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="app.animations.css" />
+    <link rel="stylesheet" href="app.css" />
+    <!-- jquery must be included before angular to use it. -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <!-- This defines ngRoute which provides routing. -->
     <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- To use ngResource module -->
     <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
@@ -24,10 +28,13 @@ PhoneListController is loaded by this module. -->
     <script src="core/checkmark/checkmark.filter.js"></script>
     <script src="core/phone/phone.module.js"></script>
     <script src="core/phone/phone.service.js"></script>
+    <script src="app.animations.js"></script>
 </head>
 
 <body>
-    <div ng-view></div>
+    <div class="view-container">
+        <div ng-view class="view-frame"></div>
+    </div>
 </body>
 
 </html>
