@@ -1,6 +1,4 @@
-/*When animations take place a 'starting' class, beginning of the animation
-and an 'active' class at the end of animation are added.
-starting classes are enter, leave, move.*/
+
 
 .phone-list-item.ng-enter, .phone-list-item.ng-leave, .phone-list-item.ng-move {
     transition: 0.5s linear all;

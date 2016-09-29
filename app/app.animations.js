@@ -1,5 +1,5 @@
 angular.
-module('phonecatAppModule').
+module('phoneCatAppModule').
 animation('.phone', function phoneAnimationFactory() {
     return {
         addClass: animateIn,
