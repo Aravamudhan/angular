@@ -1,3 +1,14 @@
+Controllers
+1. Controllers help data to the html page. Controllers are where we define the app's behaviour through functions.
+2. Wrapping the javascript in the controller inside a closure is a good habit. The scope of the controller variables is only inside the DOM to which it is attached (i.e.) a value set inside the controller(controller method) is only accessible to the DOM element to which the controller is attached through, for example, ng-controller attribute. Values can be set inside controllers such as "this.variable = 'value'".
+
+Common directives 
+1. To attach a module to the page <html ng-app="store">
+2. To attach a controller function <body ng-controller="StoreController as store">
+3. To show a section based on expression <div class="details" ng-show="store.id">
+4. To hide a section based on expression <div class="product" ng-hide="store.produce.soldOut">
+5. To get all the values in an array <div ng-repeat="product in store.products">
+
 1. When the page referencing angular.js is loaded, it looks for the ngApp directive.
 It bootstraps the application with the root DOM being the element on which ngApp is defined.
 (Example) <html ng-app>
