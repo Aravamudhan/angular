@@ -1,14 +1,58 @@
+Why angular ?
+1. To create a dynamic website that is fast.
+2. Helps organize javascript.
+3. Easy to test
+4. In traditional webpages, when a link is clicked the browser loads the entire webpage
+with all the contents.
+5. Angular is a client side JavaScript framework for adding interactivity to HTML.
+6. Directives are used in angular to run or reference some javascript code.
+Directives add interactivity/dynamic behavior to HTML.
+7. Modules are where the application or pieces of our application is written. Modules
+are the root of maintainability, readability and testability in angular. The dependencies
+of our application is defined in modules. Using modules we can tell our application that this
+module depends on some other module.
+Example: var app = angular.module(‘store’,[]);
+angular - The library
+module - The module method
+store - The name of the modules
+[] - This is where dependencies are defined.
+8. ngApp directive runs the given module when the application loads. For example, in the code
+“<html ng-app=“store”></html>”, the ng-app attribute executes the “store” module.
+
+Directives
+1. Directives are how the behavior is bound to a web page in angular. Directives expresses
+the behavior of the app too.
+2. Dash in the HTML code is translated to camelCase in javascript.
+3. Directives are attribute directives(to specify behaviors like tooltip) and element
+directives(for widgets  etc).
+4. Attribute directives are specified by "restrict:A" property, elements "restrit:E"
+property in the directive method.
+
+Expressions and curly braces
+1. Expressions are how dynamic values are included in the angular applications.	
+2. Double curly braces '{{}}' - writing stuff to HTML through expressions that evaluate to a value.
+The expressions can be variables or constants.
+3. Single curly braces '{}' -  Directives accepting objects as their arguments.
+ng-style = "{'color':'black'}". 
+4. No curly braces - Directives that accept single value arguments.
+
 Controllers
 1. Controllers help data to the html page. Controllers are where we define the app's behaviour through functions.
-2. Wrapping the javascript in the controller inside a closure is a good habit. The scope of the controller variables is only inside the DOM to which it is attached (i.e.) a value set inside the controller(controller method) is only accessible to the DOM element to which the controller is attached through, for example, ng-controller attribute. Values can be set inside controllers such as "this.variable = 'value'".
+2. Wrapping the javascript in the controller inside a closure is a good habit.
+The scope of the controller variables is only inside the DOM to which it is attached
+(i.e.) a value set inside the controller(controller method) is only accessible to the DOM element
+to which the controller is attached through, for example, ng-controller attribute.
+Values can be set inside controllers such as "this.variable = 'value'".
 
-Common directives 
+Common directives
 1. To attach a module to the page <html ng-app="store">
 2. To attach a controller function <body ng-controller="StoreController as store">
 3. To show a section based on expression <div class="details" ng-show="store.id">
 4. To hide a section based on expression <div class="product" ng-hide="store.produce.soldOut">
 5. To get all the values in an array <div ng-repeat="product in store.products">
+6. ng-model enables two way data binding.
 
+Summary
 1. When the page referencing angular.js is loaded, it looks for the ngApp directive.
 It bootstraps the application with the root DOM being the element on which ngApp is defined.
 (Example) <html ng-app>
