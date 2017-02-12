@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <p>
+        Search: <input ng-model="$ctrl.query"/>
+      </p>
+      <p>
+        Sort By:
+        <select ng-model="$ctrl.orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+        </select>
+      </p>
+    </div>
+    <div class="col-md-10">
+      <ul class="phones">
+        <!-- The filter input is the model $ctrl.query. If this value is changed
+        in the input box, the filter input is also updated. Filter creates
+        an array that matches only $ctrl.query value. -->
+        <!-- orderBy filter takes an input array copies it and reorders it. -->
+        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail phone-list-item">
+          <!-- The hashtag in the link does not cause refresh. This is used in single page apps built based on AJAX
+          with page reloads -->
+          <a href="#!/phones/{{phone.id}}" class="thumb">
+            <!-- If src is used instead of ng-src, application will make a request with {{phone.imageUrl}} as its URL
+            even before angular could evaluate the expression. -->
+            <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}"/>
+          </a>
+          <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+          <p>{{phone.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
